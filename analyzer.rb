@@ -8,8 +8,16 @@ class TextFile
 		@file.size
 	end
 
+	def join_file
+		@file.join
+	end
+
 	def char_count
-		@file.join.size
+		join_file.size
+	end
+
+	def real_char_count
+		join_file.scan(/\S/).size
 	end
 
 end
@@ -31,7 +39,7 @@ current = TextFile.new(gets.chomp)
 
 puts "line count: #{current.line_count}"
 puts "all characters: #{current.char_count}"
-# puts "characters excluding spaces: #{non_white_chars.length}"
+puts "characters excluding spaces: #{current.real_char_count}"
 # puts "words: #{words.length}"
 # puts "sentences: #{sentences.length}"
 # puts "paragraphs: #{paragraphs.length}"
